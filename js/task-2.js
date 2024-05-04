@@ -1,11 +1,7 @@
 function formatMessage(message, maxLength) {
-  let messageLength = message.length;
-  if (maxLength === messageLength) {
-    return `"${message}"`;
-  } else {
-    let partMessage = message.slice(0, maxLength);
-    return `"${partMessage}..."`;
-  }
+  return message.length <= maxLength
+    ? message
+    : `${message.slice(0, maxLength)}...`;
 }
 console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
 console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
